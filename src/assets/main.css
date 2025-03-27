@@ -11,5 +11,5 @@ body {
 }
 
 #app {
-  @apply xl:shadow-outline h-full w-full max-w-[1440px] rounded-md bg-slate-50 p-2 sm:p-5 xl:max-h-[90vh];
+  @apply xl:shadow-outline flex h-full w-full max-w-[1440px] flex-col gap-5 rounded-md bg-slate-50 p-2 sm:p-5 xl:max-h-[90vh];
 }
