@@ -3,8 +3,13 @@
 
 @theme {
   --font-rubik: Rubik, 'sans-serif';
+  --shadow-outline: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 body {
-  @apply font-rubik;
+  @apply font-rubik flex h-screen items-center justify-center;
+}
+
+#app {
+  @apply xl:shadow-outline h-full w-full max-w-[1440px] rounded-md bg-slate-50 p-2 sm:p-5 xl:max-h-[90vh];
 }

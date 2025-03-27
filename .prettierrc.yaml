@@ -11,3 +11,5 @@ arrowParens: always
 bracketSameLine: false
 quoteProps: as-needed
 singleAttributePerLine: true
+plugins:
+  - prettier-plugin-tailwindcss

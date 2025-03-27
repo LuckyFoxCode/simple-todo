@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import AppHeader from './components/AppHeader.vue';
+</script>
+
 <template>
-  <h1>Simple Todo</h1>
+  <AppHeader />
 </template>
