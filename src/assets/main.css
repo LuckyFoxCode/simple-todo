@@ -4,6 +4,7 @@
 @theme {
   --font-rubik: Rubik, 'sans-serif';
   --shadow-outline: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  --shadow-inner-item: inset 0px 0px 10px 1px rgba(80, 167, 244, 0.3);
 }
 
 body {
