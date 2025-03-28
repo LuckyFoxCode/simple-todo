@@ -3,7 +3,7 @@ interface Props {
   text: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-  color?: 'primary' | 'secondary' | 'danger' | 'edit';
+  color?: 'primary' | 'secondary' | 'danger' | 'edit' | 'success';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -16,10 +16,11 @@ const emit = defineEmits<{
 }>();
 
 const colorClasses = {
-  primary: 'bg-blue-500 hover:not-disabled:bg-blue-600',
-  secondary: 'bg-gray-500 hover:not-disabled:bg-gray-600',
-  danger: 'bg-red-500 hover:not-disabled:bg-red-600',
-  edit: 'bg-yellow-500 hover:not-disabled:bg-yellow-400',
+  primary: 'bg-blue-500 hover:not-disabled:bg-blue-500',
+  secondary: 'bg-gray-500 hover:not-disabled:bg-gray-500',
+  danger: 'bg-red-400 hover:not-disabled:bg-red-500',
+  edit: 'bg-yellow-400 hover:not-disabled:bg-yellow-500',
+  success: 'bg-green-400 hover:not-disabled:bg-green-500',
 };
 
 const handleClick = (event: MouseEvent) => {
