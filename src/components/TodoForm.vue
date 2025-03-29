@@ -12,13 +12,15 @@ const todoValue = ref<string>('');
 const handleSubmit = (event: Event) => {
   event.preventDefault();
 
-  if (todoValue.value.trim() === '') return;
+  const trimmedValue = todoValue.value.trim();
+  if (trimmedValue === '') return;
 
   const todo = {
     id: crypto.randomUUID(),
-    value: todoValue.value.trim(),
+    value: trimmedValue,
     completed: false,
   };
+
   emit('add-todo', todo);
   todoValue.value = '';
 };
