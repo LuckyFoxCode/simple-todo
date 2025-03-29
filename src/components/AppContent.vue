@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import TodoForm from './TodoForm.vue';
 import TodoList from './TodoList.vue';
+import TodoStatistics from './TodoStatistics.vue';
 import type { Todo } from '@/types/todo';
 
 const todos = ref<Todo[]>([]);
@@ -31,13 +32,26 @@ const deleteTodo = (id: string) => {
 </script>
 
 <template>
-  <main class="flex min-h-0 w-full flex-1 flex-col gap-3 rounded-lg bg-white px-3 py-4 shadow-lg">
+  <main
+    class="flex flex-1 flex-col gap-4 overflow-y-auto rounded-lg bg-white px-3 py-4 shadow-lg md:gap-6"
+  >
     <TodoForm @add-todo="addTodo" />
+    <p
+      v-if="todos.length === 0"
+      class="text-center text-2xl text-slate-400 md:text-3xl"
+    >
+      Empty list, please add todos
+    </p>
     <TodoList
       :todos="todos"
       @toggle-todo="toggleTodo"
       @delete-todo="deleteTodo"
       @edit-todo="editTodo"
+    />
+
+    <TodoStatistics
+      v-if="todos.length > 0"
+      :todos="todos"
     />
   </main>
 </template>

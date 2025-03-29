@@ -44,13 +44,13 @@ const cancelEdit = () => {
 };
 
 const formattedTodo = computed(() =>
-  props.todo.value.length > 40 ? `${props.todo.value.slice(0, 40)}...` : props.todo.value,
+  props.todo.value.length > 23 ? `${props.todo.value.slice(0, 23)}...` : props.todo.value,
 );
 </script>
 
 <template>
   <li
-    class="shadow-inner-item flex items-center justify-between gap-1 rounded-lg border bg-slate-100 p-2"
+    class="shadow-inner-item flex h-min items-center justify-between gap-1 rounded-lg border bg-slate-100 p-2"
   >
     <template v-if="isEdit">
       <input

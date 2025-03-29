@@ -14,7 +14,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <ul class="grid-auto-rows-min grid grid-cols-1 gap-5 overflow-y-auto pb-3 lg:grid-cols-2">
+  <ul class="flex flex-1 flex-col gap-5 overflow-y-auto pb-3">
     <TodoItem
       v-for="todo in props.todos"
       :key="todo.id"
