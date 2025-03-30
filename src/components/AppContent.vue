@@ -1,11 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, onUpdated, ref } from 'vue';
 import TodoForm from './TodoForm.vue';
 import TodoList from './TodoList.vue';
 import TodoStatistics from './TodoStatistics.vue';
 import type { Todo } from '@/types/todo';
+import { useLocalStorage } from '@/composables/useLocalStorage';
 
 const todos = ref<Todo[]>([]);
+const { getValue, setValue } = useLocalStorage();
+
+onMounted(() => {
+  const storedTodos = getValue<Todo[]>('todos');
+  if (storedTodos) {
+    todos.value = storedTodos;
+  }
+});
+
+onUpdated(() => {
+  setValue('todos', todos.value);
+});
 
 const addTodo = (todo: Todo) => {
   todos.value.push(todo);
@@ -21,8 +34,7 @@ const toggleTodo = (id: string) => {
 const editTodo = (id: string, newValue: string) => {
   const index = todos.value.findIndex((todo) => todo.id === id);
   if (index !== -1 && newValue.trim() !== '') {
-    const updateTodo = { ...todos.value[index], value: newValue.trim() };
-    todos.value[index] = updateTodo;
+    todos.value[index] = { ...todos.value[index], value: newValue.trim() };
   }
 };
 
